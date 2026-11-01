@@ -3,4 +3,6 @@
 data/
 *.csv
 .md
-.ipynb
+__pycache__/
+.ipynb_checkpoints/
+*.pyc

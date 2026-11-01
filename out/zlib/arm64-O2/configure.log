@@ -1,0 +1,348 @@
+--------------------
+/work/src/zlib-1.3.2/configure --static
+Mon Oct 12 19:00:30 UTC 2026
+=== ztest5997.c ===
+extern int getchar();
+int hello() {return getchar();}
+===
+aarch64-linux-gnu-gcc -c ztest5997.c
+... using gcc
+
+Checking for compiler...
+=== ztest5997.c ===
+int foo() { return 0; }
+===
+aarch64-linux-gnu-gcc -c ztest5997.c
+Checking for obsessive-compulsive compiler options...
+=== ztest5997.c ===
+int foo() { return 0; }
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC ztest5997.c
+
+Building static library libz.a version 1.3.2 with aarch64-linux-gnu-gcc.
+
+=== ztest5997.c ===
+#include <stdio.h>
+#include <stdlib.h>
+size_t dummy = 0;
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC ztest5997.c
+Checking for size_t... Yes.
+
+=== ztest5997.c ===
+#include <sys/types.h>
+off64_t dummy = 0;
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking for off64_t... Yes.
+Checking for fseeko... Yes.
+
+=== ztest5997.c ===
+#include <string.h>
+#include <errno.h>
+int main() { return strlen(strerror(errno)); }
+===
+aarch64-linux-gnu-gcc -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest5997 ztest5997.c
+Checking for strerror... Yes.
+
+=== ztest5997.c ===
+#include <unistd.h>
+int main() { return 0; }
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking for unistd.h... Yes.
+
+=== ztest5997.c ===
+#include <stdarg.h>
+int main() { return 0; }
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking for stdarg.h... Yes.
+
+=== ztest5997.c ===
+#include <stdio.h>
+#include <stdarg.h>
+#include "zconf.h"
+int main()
+{
+#ifndef STDC
+  choke me
+#endif
+  return 0;
+}
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+
+=== ztest5997.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return 0;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+aarch64-linux-gnu-gcc -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest5997 ztest5997.c
+Checking for vsnprintf() in stdio.h... Yes.
+
+=== ztest5997.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  int n;
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  n = vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return n;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking for return value of vsnprintf()... Yes.
+
+=== ztest5997.c ===
+#define ZLIB_INTERNAL __attribute__((visibility ("hidden")))
+int ZLIB_INTERNAL foo;
+int main()
+{
+  return 0;
+}
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest5997.c
+Checking for attribute(visibility) support... Yes.
+=== ztest5997.c ===
+#ifndef __s390x__
+    #error
+#endif
+===
+aarch64-linux-gnu-gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN ztest5997.c
+ztest5997.c:2:6: error: #error 
+    2 |     #error
+      |      ^~~~~
+(exit code 1)
+Checking for s390x build ... No.
+
+ALL = static all64
+AR = aarch64-linux-gnu-ar
+ARFLAGS = rc
+CC = aarch64-linux-gnu-gcc
+CFLAGS = -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+CPP =
+EXE =
+LDCONFIG = ldconfig
+LDFLAGS =
+LDSHARED = aarch64-linux-gnu-gcc
+LDSHAREDLIBC = -lc
+OBJC = $(OBJZ) $(OBJG)
+PIC_OBJC = $(PIC_OBJZ) $(PIC_OBJG)
+RANLIB = aarch64-linux-gnu-ranlib
+SFLAGS = -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+SHAREDLIB =
+SHAREDLIBM =
+SHAREDLIBV =
+STATICLIB = libz.a
+TEST = all teststatic test64
+VER = 1.3.2
+SRCDIR = /work/src/zlib-1.3.2/
+exec_prefix = ${prefix}
+includedir = ${prefix}/include
+libdir = ${exec_prefix}/lib
+mandir = ${prefix}/share/man
+prefix = /usr/local
+sharedlibdir = ${libdir}
+uname = Linux
+HAVE_S390X = 0
+HAVE_S390X_VX = 0
+VGFMAFLAG =
+--------------------
+
+
+--------------------
+/work/src/zlib-1.3.2/configure --static
+Tue Oct 13 02:20:38 UTC 2026
+=== ztest4520.c ===
+extern int getchar();
+int hello() {return getchar();}
+===
+gcc -c ztest4520.c
+... using gcc
+
+Checking for compiler...
+=== ztest4520.c ===
+int foo() { return 0; }
+===
+gcc -c ztest4520.c
+Checking for obsessive-compulsive compiler options...
+=== ztest4520.c ===
+int foo() { return 0; }
+===
+gcc -c -O2 -g -fPIC -fPIC ztest4520.c
+
+Building static library libz.a version 1.3.2 with gcc.
+
+=== ztest4520.c ===
+#include <stdio.h>
+#include <stdlib.h>
+size_t dummy = 0;
+===
+gcc -c -O2 -g -fPIC -fPIC ztest4520.c
+Checking for size_t... Yes.
+
+=== ztest4520.c ===
+#include <sys/types.h>
+off64_t dummy = 0;
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking for off64_t... Yes.
+Checking for fseeko... Yes.
+
+=== ztest4520.c ===
+#include <string.h>
+#include <errno.h>
+int main() { return strlen(strerror(errno)); }
+===
+gcc -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest4520 ztest4520.c
+Checking for strerror... Yes.
+
+=== ztest4520.c ===
+#include <unistd.h>
+int main() { return 0; }
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking for unistd.h... Yes.
+
+=== ztest4520.c ===
+#include <stdarg.h>
+int main() { return 0; }
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking for stdarg.h... Yes.
+
+=== ztest4520.c ===
+#include <stdio.h>
+#include <stdarg.h>
+#include "zconf.h"
+int main()
+{
+#ifndef STDC
+  choke me
+#endif
+  return 0;
+}
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+
+=== ztest4520.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return 0;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+gcc -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest4520 ztest4520.c
+Checking for vsnprintf() in stdio.h... Yes.
+
+=== ztest4520.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  int n;
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  n = vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return n;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking for return value of vsnprintf()... Yes.
+
+=== ztest4520.c ===
+#define ZLIB_INTERNAL __attribute__((visibility ("hidden")))
+int ZLIB_INTERNAL foo;
+int main()
+{
+  return 0;
+}
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 ztest4520.c
+Checking for attribute(visibility) support... Yes.
+=== ztest4520.c ===
+#ifndef __s390x__
+    #error
+#endif
+===
+gcc -c -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN ztest4520.c
+ztest4520.c:2:6: error: #error 
+    2 |     #error
+      |      ^~~~~
+(exit code 1)
+Checking for s390x build ... No.
+
+ALL = static all64
+AR = ar
+ARFLAGS = rc
+CC = gcc
+CFLAGS = -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+CPP =
+EXE =
+LDCONFIG = ldconfig
+LDFLAGS =
+LDSHARED = gcc
+LDSHAREDLIBC = -lc
+OBJC = $(OBJZ) $(OBJG)
+PIC_OBJC = $(PIC_OBJZ) $(PIC_OBJG)
+RANLIB = ranlib
+SFLAGS = -O2 -g -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+SHAREDLIB =
+SHAREDLIBM =
+SHAREDLIBV =
+STATICLIB = libz.a
+TEST = all teststatic test64
+VER = 1.3.2
+SRCDIR = /work/src/zlib-1.3.2/
+exec_prefix = ${prefix}
+includedir = ${prefix}/include
+libdir = ${exec_prefix}/lib
+mandir = ${prefix}/share/man
+prefix = /usr/local
+sharedlibdir = ${libdir}
+uname = Linux
+HAVE_S390X = 0
+HAVE_S390X_VX = 0
+VGFMAFLAG =
+--------------------
+
+
